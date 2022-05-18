@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    boolean t=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +40,17 @@ public class MainActivity extends AppCompatActivity {
         mainlayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                mainlayout.setBackgroundColor(Color.parseColor("#ccffda"));
-                header.setBackgroundColor(Color.parseColor("#000000"));
-                alertDialog.show();
+                if(!t) {
+                    mainlayout.setBackgroundColor(Color.parseColor("#ccffda"));
+                    header.setBackgroundColor(Color.parseColor("#000000"));
+                    alertDialog.show();
+                    t = true;
+                }else{
+                    mainlayout.setBackgroundColor(Color.parseColor("#1243fa"));
+                    header.setBackgroundColor(Color.parseColor("#000000"));
+                    alertDialog.show();
+                    t = false;
+                }
                 return true;
             }
         });
